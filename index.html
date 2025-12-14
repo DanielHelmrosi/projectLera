@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hoolivad Käed</title>
+
 <style>
 :root{
   --green:#c6d8a6;
@@ -17,6 +18,8 @@ body{
   color:var(--text);
   background:#fff;
 }
+
+/* ---------- HEADER ---------- */
 
 header{
   background:var(--green);
@@ -48,6 +51,7 @@ header{
   border-radius:50%;
 }
 
+/* УВЕЛИЧЕНО В 2 РАЗА */
 .header-text{
   font-size:30px;
   line-height:1.3;
@@ -72,6 +76,8 @@ header{
   background:var(--accent);
   color:#fff;
 }
+
+/* ---------- MAIN ---------- */
 
 main{
   max-width:920px;
@@ -115,6 +121,7 @@ section{
   padding-left:18px;
 }
 
+/* ЦВЕТОЧКИ ЧУТЬ ЯРЧЕ */
 .flower{
   width:340px;
   opacity:.38;
@@ -145,9 +152,17 @@ footer{
   margin:20px 0;
 }
 
-/* Адаптивность отключена, сайт будет одинаково на всех устройствах */
+/* ---------- MOBILE ---------- */
+
+@media(max-width:720px){
+  .grid{grid-template-columns:1fr}
+  .services{flex-direction:column}
+  .flower{width:240px}
+  .header-text{font-size:22px}
+}
 </style>
 </head>
+
 <body>
 
 <header>
@@ -155,11 +170,13 @@ footer{
     <div class="logo">
       <img src="https://i.ibb.co/vvBNP65d/your-logo.png" alt="Hoolivad Käed">
     </div>
+
     <div id="headline" class="header-text">
       Massaaž | Terapia ja taastumine<br>
       täiskasvanutele ja lastele
     </div>
   </div>
+
   <div class="lang">
     <button id="btn-et" class="active">Est</button>
     <button id="btn-ru">Rus</button>
@@ -167,9 +184,12 @@ footer{
 </header>
 
 <main>
+
 <div class="grid">
   <img class="photo" src="https://i.ibb.co/1JQvMkfv/your-image.jpg" alt="Ljubov Kazubski">
+
   <div>
+
     <section>
       <h2 id="about_title">Minust</h2>
       <p id="about_text"></p>
@@ -181,6 +201,7 @@ footer{
         <h3 id="services_title"></h3>
         <ul id="services_list"></ul>
       </div>
+
       <img class="flower" src="https://i.ibb.co/4wqkGBps/flower.png" alt="">
     </section>
 
@@ -195,24 +216,34 @@ footer{
       <div id="mail"></div>
       <div id="phone"></div>
     </div>
+
   </div>
 </div>
+
 </main>
 
 <footer>© Hoolivad Käed</footer>
 
 <script>
-const et={
+const et = {
   headline:"Massaaž | Terapia ja taastumine<br>täiskasvanutele ja lastele",
   about_title:"Minust",
   about_text:`<strong>Ljubov Kazubski</strong><br>
   5. kategooria massöör ja füsioterapeudi assistent<br>
   • 9 aastat kogemust<br>
   • 6 aastat rehabilitatsioonis<br><br>
-  Minu teekond algas laste rehabilitatsioonis, kus aitasin kõige väiksematel teha esimesi samme taastumise teel. Hiljem töötasin 6 aastat täiskasvanute rehabilitatsioonis, kus nägin iga päev, kuidas massaaž aitab inimestel taastada tervist, kergust ja liikumisvabadust.`,
+  Minu teekond algas laste rehabilitatsioonis, kus aitasin kõige väiksematel
+  teha esimesi samme taastumise teel. Hiljem töötasin 6 aastat täiskasvanute
+  rehabilitatsioonis, kus nägin iga päev, kuidas massaaž aitab inimestel
+  taastada tervist, kergust ja liikumisvabadust.`,
   price:"Iga tunnine massaaž – 45 €",
   services_title:"Teenused",
-  services:["Klassikaline massaaž","Spordimassaaž","Lümfimassaaž","Töö triggerpunktidega","Kupumassaaž","Aroomimassaaž","Laavakivimassaaž","Tselluliidivastane massaaž","Rasedatele","Lastele (6–14 a)","Seenioridele"],
+  services:[
+    "Klassikaline massaaž","Spordimassaaž","Lümfimassaaž",
+    "Töö triggerpunktidega","Kupumassaaž","Aroomimassaaž",
+    "Laavakivimassaaž","Tselluliidivastane massaaž",
+    "Rasedatele","Lastele (6–14 a)","Seenioridele"
+  ],
   why_title:"Miks kogenud kliendid valivad mind?",
   why_text:"Massaaž võib olla õrn ja samas tõhus. Isiklik lähenemine ja hoolivad käed aitavad kehal lõõgastuda ja taastuda kiiremini.",
   inst:`<a href="https://www.instagram.com/hoolivad_kaed?igsh=OGhmbzc5MW5kbXVu" target="_blank">Instagram: @hoolivad_kaed</a>`,
@@ -222,16 +253,24 @@ const et={
   phoneNumber:"5516739"
 };
 
-const ru={
+const ru = {
   headline:"Массаж | Терапия и восстановление<br>для взрослых и детей",
   about_title:"Обо мне",
   about_text:`<strong>Любовь Казубски</strong><br>
   Массажист 5 категории и ассистент физиотерапевта<br>
   • 9 лет опыта<br>
   • 6 лет в реабилитации<br><br>
-  Мой путь начался в детской реабилитации, где я помогала детям делать первые шаги к восстановлению. Позже я работала со взрослыми, ежедневно видя, как массаж возвращает здоровье, лёгкость и свободу движений.`,
+  Мой путь начался в детской реабилитации, где я помогала детям делать
+  первые шаги к восстановлению. Позже я работала со взрослыми,
+  ежедневно видя, как массаж возвращает здоровье, лёгкость и свободу движений.`,
   price:"Час массажа – 45 €",
-  services:["Классический массаж","Спортивный массаж","Лимфодренаж","Работа с триггерными точками","Баночный массаж","Аромамассаж","Массаж горячими камнями","Антицеллюлитный массаж","Для беременных","Детям (6–14 лет)","Пожилым"],
+  services_title:"Услуги",
+  services:[
+    "Классический массаж","Спортивный массаж","Лимфодренаж",
+    "Работа с триггерными точками","Баночный массаж","Аромамассаж",
+    "Массаж горячими камнями","Антицеллюлитный массаж",
+    "Для беременных","Детям (6–14 лет)","Пожилым"
+  ],
   why_title:"Почему клиенты выбирают меня?",
   why_text:"Массаж может быть мягким и одновременно эффективным. Индивидуальный подход и заботливые руки помогают телу расслабиться и восстановиться быстрее.",
   inst:`<a href="https://www.instagram.com/hoolivad_kaed?igsh=OGhmbzc5MW5kbXVu" target="_blank">Instagram: @hoolivad_kaed</a>`,
@@ -241,34 +280,34 @@ const ru={
   phoneNumber:"5516739"
 };
 
-function setLang(lang,activeBtn,inactiveBtn){
-  document.getElementById("headline").innerHTML=lang.headline;
-  document.getElementById("about_title").textContent=lang.about_title;
-  document.getElementById("about_text").innerHTML=lang.about_text;
-  document.getElementById("price").textContent=lang.price;
-  document.getElementById("services_title").textContent=lang.services_title;
+function setLang(lang, activeBtn, inactiveBtn){
+  document.getElementById("headline").innerHTML = lang.headline;
+  document.getElementById("about_title").textContent = lang.about_title;
+  document.getElementById("about_text").innerHTML = lang.about_text;
+  document.getElementById("price").textContent = lang.price;
+  document.getElementById("services_title").textContent = lang.services_title;
 
-  const ul=document.getElementById("services_list");
-  ul.innerHTML="";
+  const ul = document.getElementById("services_list");
+  ul.innerHTML = "";
   lang.services.forEach(s=>{
-    const li=document.createElement("li");
-    li.textContent=s;
+    const li = document.createElement("li");
+    li.textContent = s;
     ul.appendChild(li);
   });
 
-  document.getElementById("why_title").textContent=lang.why_title;
-  document.getElementById("why_text").textContent=lang.why_text;
-  document.getElementById("inst").innerHTML=lang.inst;
-  document.getElementById("fb").innerHTML=lang.fb;
-  document.getElementById("mail").innerHTML=lang.mail;
-  document.getElementById("phone").innerHTML=`<a href="tel:${lang.phoneNumber}">${lang.phone}</a>`;
+  document.getElementById("why_title").textContent = lang.why_title;
+  document.getElementById("why_text").textContent = lang.why_text;
+  document.getElementById("inst").innerHTML = lang.inst;
+  document.getElementById("fb").innerHTML = lang.fb;
+  document.getElementById("mail").innerHTML = lang.mail;
+  document.getElementById("phone").innerHTML = `<a href="tel:${lang.phoneNumber}">${lang.phone}</a>`;
 
   document.getElementById(activeBtn).classList.add("active");
   document.getElementById(inactiveBtn).classList.remove("active");
 }
 
-document.getElementById("btn-et").onclick=()=>setLang(et,"btn-et","btn-ru");
-document.getElementById("btn-ru").onclick=()=>setLang(ru,"btn-ru","btn-et");
+document.getElementById("btn-et").onclick = ()=>setLang(et,"btn-et","btn-ru");
+document.getElementById("btn-ru").onclick = ()=>setLang(ru,"btn-ru","btn-et");
 
 setLang(et,"btn-et","btn-ru");
 </script>
