@@ -18,9 +18,10 @@ body{
   font-family: Inter, system-ui, Arial, sans-serif;
   color:var(--text);
   background:#fff;
+  overflow-x:hidden;
 }
 
-/* HEADER */
+/* ---------- HEADER ---------- */
 header{
   background:var(--green);
   padding:20px;
@@ -32,7 +33,6 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  flex-wrap:wrap;
 }
 
 .header-left{
@@ -62,26 +62,28 @@ header{
   line-height:1.3;
 }
 
+/* ---------- LANG SWITCH ---------- */
 .lang{
   display:flex;
-  gap:8px;
+  gap:14px;
 }
 
 .lang button{
   border:none;
-  background:#fff;
-  padding:6px 12px;
-  border-radius:20px;
+  background:transparent;
   cursor:pointer;
-  font-size:13px;
+  font-size:14px;
+  color:#6b6b6b;
+  font-weight:400;
+  padding:0;
 }
 
 .lang button.active{
-  background:var(--accent);
-  color:#fff;
+  color:var(--accent);
+  font-weight:600;
 }
 
-/* MAIN */
+/* ---------- MAIN ---------- */
 main{
   max-width:920px;
   margin:25px auto;
@@ -102,12 +104,14 @@ main{
 h2,h3{
   color:var(--accent);
   margin:0 0 8px;
+  font-weight:500;
 }
 
 section{
   margin-bottom:18px;
 }
 
+/* ---------- SERVICES ---------- */
 .services{
   display:flex;
   gap:20px;
@@ -124,10 +128,14 @@ section{
   margin-bottom:4px;
 }
 
+/* ЦЕНА — ЦВЕТ КАК ВЕРХНИЙ ПРЯМОУГОЛЬНИК */
 .price{
   margin-top:10px;
-  font-weight:500;
-  color:var(--list);
+  font-weight:600;
+}
+
+.highlight-green{
+  color:var(--green);
 }
 
 .flower{
@@ -135,7 +143,7 @@ section{
   opacity:.25;
 }
 
-/* CONTACTS WITH ICONS */
+/* ---------- CONTACTS ---------- */
 .contacts{
   display:flex;
   flex-direction:column;
@@ -200,12 +208,11 @@ footer{
       <p id="about_text"></p>
     </section>
 
-    <!-- УСЛУГИ ВЫШЕ ЦЕНЫ -->
     <section class="services">
       <div>
         <h3 id="services_title"></h3>
         <ul id="services_list"></ul>
-        <div id="price" class="price"></div>
+        <div id="price" class="price highlight-green"></div>
       </div>
       <img class="flower" src="https://i.ibb.co/4wqkGBps/flower.png">
     </section>
@@ -215,7 +222,6 @@ footer{
       <p id="why_text"></p>
     </section>
 
-    <!-- КОНТАКТЫ С ИКОНКАМИ -->
     <div class="contacts">
       <div class="contact-item" id="inst"></div>
       <div class="contact-item" id="fb"></div>
@@ -232,7 +238,7 @@ footer{
 const ru = {
   headline:"Массаж | Терапия и восстановление<br>для взрослых и детей",
   about_title:"Обо мне",
-  about_text:`<strong>Любовь Казубски</strong><br>
+  about_text:`<strong class="highlight-green">Любовь Казубски</strong><br>
   Массажист 5 категории и ассистент физиотерапевта<br>
   • 9 лет опыта<br>• 6 лет в реабилитации`,
   services_title:"Услуги",
@@ -258,7 +264,7 @@ const ru = {
 const et = {
   headline:"Massaaž | Teraapia ja taastumine<br>täiskasvanutele ja lastele",
   about_title:"Minust",
-  about_text:`<strong>Ljubov Kazubski</strong><br>
+  about_text:`<strong class="highlight-green">Ljubov Kazubski</strong><br>
   5. kategooria massöör ja füsioterapeudi assistent<br>
   • 9 aastat kogemust<br>• 6 aastat rehabilitatsioonis`,
   services_title:"Teenused",
